@@ -5,20 +5,27 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
     plugins: [
+        tailwindcss(), 
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.js'],
-            refresh: true,
+            // Força o Vite a monitorar explicitamente todos os seus arquivos Blade e recarregar o navegador
+            refresh: [
+                'resources/routes/**',
+                'routes/**',
+                'resources/views/**',
+                'resources/views/**/*.blade.php',
+            ],
             fonts: [
                 bunny('Instrument Sans', {
-                    weights: [400, 500, 600],
+                    weights:[400, 500, 600],
                 }),
             ],
         }),
-        tailwindcss(),
     ],
     server: {
         watch: {
-            ignored: ['**/storage/framework/views/**'],
+            usePolling: true,
+            interval: 100, // Força a verificação a cada 100ms
         },
     },
 });

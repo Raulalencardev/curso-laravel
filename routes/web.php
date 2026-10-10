@@ -3,9 +3,5 @@
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/test', [SiteController::class, 'index']);
+Route::get('/', [SiteController::class, 'index']);
 

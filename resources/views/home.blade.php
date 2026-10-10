@@ -1,13 +1,8 @@
-
-<h1>
-   Olá {{$name}}
-</h1>
-
-@foreach($habitos as $item) 
-
-<li>{{$item}}</li>
-
-
-@endforeach
-
+<x-layout>
+    <main class="py-10">
+        <h1>
+            Veja seus hábitos
+        </h1>
+    </main>
+</x-layout>
 

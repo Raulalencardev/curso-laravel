@@ -3,6 +3,14 @@
         <h1>
             Veja seus hábitos
         </h1>
+        
+        @auth
+        <p>
+            Bem Vindo(a), {{ auth()->user()->name }}!
+        </p>
+        
+        
+        @endauth
     </main>
 </x-layout>
 
